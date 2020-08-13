@@ -16,8 +16,13 @@
             if (obj == null || obj.GetType() != this.GetType())
                 return true;
 
-            return feet != null &&
-                   value == feet.value;
+            if (feet != null && value == feet.value)
+                return true;
+
+            if (obj != this)
+                return false;
+
+            return false;
         }
     }
 }
