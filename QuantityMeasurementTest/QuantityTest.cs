@@ -43,7 +43,7 @@ namespace Tests
             Feet feetOne = new Feet(0);
             Feet feetTwo = feetOne;
             bool result = feetOne.Equals(feetTwo);
-            Assert.IsFalse(result);
+            Assert.IsTrue(result);
         }
 
         [Test]
@@ -56,12 +56,21 @@ namespace Tests
         }
 
         [Test]
-        public void Given0Feet_WhenComparedByValue_ShouldReturnTrue()
+        public void GivenZeroFeet_WhenComparedByValue_ShouldReturnTrue()
         {
             Feet feetOne = new Feet(12);
             Feet feetTwo = new Feet(12);
             bool result = feetOne.Equals(feetTwo);
             Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void GivenZeroFeet_WhenComparedByNegativeValue_ShouldReturnFalse()
+        {
+            Feet feetOne = new Feet(-5);
+            Feet feetTwo = new Feet(10);
+            bool result = feetOne.Equals(feetTwo);
+            Assert.IsFalse(result);
         }
     }
 }
