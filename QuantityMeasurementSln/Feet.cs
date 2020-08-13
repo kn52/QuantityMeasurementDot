@@ -13,6 +13,9 @@
         {
             var feet = obj as Feet;
 
+            if (obj == this)
+                return true;
+
             if (obj == null || obj.GetType() != this.GetType())
                 return true;
 
