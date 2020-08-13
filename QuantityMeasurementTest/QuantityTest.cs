@@ -18,5 +18,14 @@ namespace Tests
             bool result = feetOne.Equals(feetTwo);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void GivenZeroFeet_WhenComparedWithNull_ShouldReturnTrue()
+        {
+            Feet feetOne = new Feet(0);
+            Feet feetTwo = null;
+            bool result = feetOne.Equals(feetTwo);
+            Assert.IsTrue(result);
+        }
     }
 }

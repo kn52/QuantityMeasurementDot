@@ -12,6 +12,10 @@
         public override bool Equals(object obj)
         {
             var feet = obj as Feet;
+
+            if (obj == null || obj.GetType() != this.GetType())
+                return true;
+
             return feet != null &&
                    value == feet.value;
         }
