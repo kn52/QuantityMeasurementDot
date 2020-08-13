@@ -81,5 +81,14 @@ namespace Tests
             bool result = inchOne.Equals(inchTwo);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void givenZeroInch_WhenComparedWithNullValue_ShouldReturnTrue()
+        {
+            Inch inchOne = new Inch(0);
+            Inch inchTwo = null;
+            bool result = inchOne.Equals(inchTwo);
+            Assert.IsTrue(result);
+        }
     }
 }

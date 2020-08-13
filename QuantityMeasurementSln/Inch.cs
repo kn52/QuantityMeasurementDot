@@ -22,8 +22,17 @@ namespace QuantityMeasurementSln
         public override bool Equals(object obj)
         {
             var inch = obj as Inch;
+            if (obj == this)
+                return true;
+
+            if (obj == null || obj.GetType() != this.GetType())
+                return true;
+
             if (inch != null && value == inch.value)
                 return true;
+
+            if (obj != this)
+                return false;
 
             return false;
         }
