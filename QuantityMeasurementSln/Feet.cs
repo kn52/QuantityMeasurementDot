@@ -4,6 +4,10 @@
     {
         private int value;
 
+        public Feet()
+        {
+        }
+
         public Feet(int value)
         {
             this.value = value;
