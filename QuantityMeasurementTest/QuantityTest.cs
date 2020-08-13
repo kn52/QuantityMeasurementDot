@@ -72,5 +72,14 @@ namespace Tests
             bool result = feetOne.Equals(feetTwo);
             Assert.IsFalse(result);
         }
+
+        [Test]
+        public void givenZeroInch_WhenComparedWithAnotherZeroInch_ShouldReturnTrue()
+        {
+            Inch inchOne = new Inch(0);
+            Inch inchTwo = new Inch(0);
+            bool result = inchOne.Equals(inchTwo);
+            Assert.IsTrue(result);
+        }
     }
 }
