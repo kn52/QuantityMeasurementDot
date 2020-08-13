@@ -90,5 +90,14 @@ namespace Tests
             bool result = inchOne.Equals(inchTwo);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void givenZeroInch_WhenComparedByReference_ShouldReturnFalse()
+        {
+            Inch inchOne = new Inch(0);
+            Inch inchTwo = new Inch(0);
+            bool result = inchOne.Equals(inchTwo);
+            Assert.IsFalse(result);
+        }
     }
 }
