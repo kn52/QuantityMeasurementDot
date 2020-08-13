@@ -54,5 +54,14 @@ namespace Tests
             bool result = feetOne.Equals(feetTwo);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void Given0Feet_WhenComparedByValue_ShouldReturnTrue()
+        {
+            Feet feetOne = new Feet(12);
+            Feet feetTwo = new Feet(12);
+            bool result = feetOne.Equals(feetTwo);
+            Assert.IsTrue(result);
+        }
     }
 }
