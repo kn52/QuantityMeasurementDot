@@ -5,9 +5,12 @@ namespace Tests
 {
     public class Tests
     {
+        Quantity quantity;
+
         [SetUp]
         public void Setup()
         {
+            quantity = new Quantity();
         }
 
         [Test]
@@ -67,9 +70,9 @@ namespace Tests
         [Test]
         public void GivenZeroFeet_WhenComparedByNegativeValue_ShouldReturnFalse()
         {
-            Quantity feetOne = new Quantity(-5, "FEET");
-            Quantity feetTwo = new Quantity(12, "FEET");
-            bool result = feetOne.Equals(feetTwo);
+            Quantity quantityOne = new Quantity(-5, "FEET");
+            Quantity quantityTwo = new Quantity(12, "FEET");
+            bool result = quantityOne.Equals(quantityTwo);
             Assert.IsFalse(result);
         }
 
@@ -130,10 +133,19 @@ namespace Tests
         [Test]
         public void givenZeroInch_WhenComparedByNegativeValue_ShouldReturnFalse()
         {
-            Quantity inchOne = new Quantity(-12, "INCH");
-            Quantity inchTwo = new Quantity(12, "INCH");
-            bool result = inchOne.Equals(inchTwo);
+            Quantity quantityOne = new Quantity(-12, "INCH");
+            Quantity quantityTwo = new Quantity(12, "INCH");
+            bool result = quantityOne.Equals(quantityTwo);
             Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void givenZeroFeet_WhenComparedByZeroInch_ShouldReturnTrue()
+        {
+            Quantity quantityOne= new Quantity(0, "FEET");
+            Quantity quantityTwo = new Quantity(0, "INCH");
+            bool result = quantity.Compare(quantityOne,quantityTwo);
+            Assert.IsTrue(result);
         }
     }
 }

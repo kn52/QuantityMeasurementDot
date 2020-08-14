@@ -18,10 +18,8 @@
             this.unit = unit;
         }
 
-        public bool compare(Quantity quantityOne, Quantity quantityTwo)
+        public bool Compare(Quantity quantityOne, Quantity quantityTwo)
         {
-            if (!q1.unit.Equals(q2.unit))
-                return false;
             return conversionUnit.ConvertUnit(quantityOne).Equals(conversionUnit.ConvertUnit(quantityTwo));
         }
 

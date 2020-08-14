@@ -3,7 +3,6 @@ namespace QuantityMeasurementSln
 {
     public class ConversionUnit
     {
-        //public ConversionUnit() { }
         public double ConvertUnit(Quantity quantity)
         {
             return quantity.value * this.ConversionFactor(quantity.unit);
