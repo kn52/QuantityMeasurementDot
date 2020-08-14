@@ -297,11 +297,21 @@ namespace Tests
         }
 
         [Test]
-        public void givenOneLitre_WhenComparedByFourMilliLitre_ShouldReturnTrue()
+        public void givenOneLitre_WhenComparedByThousandMilliLitre_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "LITRE", "VOLUME");
             Quantity quantityTwo = new Quantity(1000, "MILLILITRE", "VOLUME");
             bool result = quantity.Compare(quantityOne, quantityTwo);
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void givenOneGallonPlusFourLitre_WhenComparedByEightLitre_ShouldReturnTrue()
+        {
+            Quantity quantityOne = new Quantity(1, "GALLON", "VOLUME");
+            Quantity quantityTwo = new Quantity(3.78, "LITRE", "VOLUME");
+            Quantity quantityThree = new Quantity(7.57, "LITRE", "VOLUME");
+            bool result = quantity.Compare(quantityOne, quantityTwo, quantityThree);
             Assert.IsTrue(result);
         }
     }
