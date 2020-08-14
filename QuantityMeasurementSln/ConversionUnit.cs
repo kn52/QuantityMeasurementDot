@@ -3,10 +3,13 @@ namespace QuantityMeasurementSln
 {
     public class ConversionUnit
     {
-        public double ConvertUnit(double value,string unit)
+        //public ConversionUnit() { }
+        public double ConvertUnit(Quantity quantity)
         {
-            return value * this.ConversionFactor(unit);
+            return quantity.value * this.ConversionFactor(quantity.unit);
         }
+
+
 
         public double ConversionFactor (string unit)
         {
@@ -18,9 +21,7 @@ namespace QuantityMeasurementSln
                     return 1.0;
                 default:
                     return 0.0;
-                    break;
             }
-            return 0.0;
         }
     }
 }
