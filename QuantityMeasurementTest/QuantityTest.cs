@@ -117,5 +117,14 @@ namespace Tests
             bool result = inchOne.Equals(inchTwo);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void givenZeroInch_WhenComparedByValue_ShouldReturnTrue()
+        {
+            Inch inchOne = new Inch(12);
+            Inch inchTwo = new Inch(12);
+            bool result = inchOne.Equals(inchTwo);
+            Assert.IsTrue(result);
+        }
     }
 }
