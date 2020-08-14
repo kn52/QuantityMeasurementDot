@@ -14,7 +14,7 @@ namespace QuantityMeasurementSln
             conversionUnit = new ConversionUnit();
         }
 
-        public Quantity(int value, string unit)
+        public Quantity(double value, string unit)
         {
             this.value = value;
             this.unit = unit;
