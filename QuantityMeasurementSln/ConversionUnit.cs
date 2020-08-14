@@ -10,6 +10,7 @@ namespace QuantityMeasurementSln
         public ConversionUnit()
         {
             unit.Add("LENGTH", "INCH");
+            unit.Add("VOLUME", "LITRE");
         }
 
         public double ConvertUnit(Quantity quantity)
@@ -36,6 +37,12 @@ namespace QuantityMeasurementSln
                     return 1.0;
                 case "CENTIMETRE":
                     return 1 / 2.54;
+                case "GALLON":
+                    return 3.78;
+                case "LITRE":
+                    return 1.0;
+                case "MILLILITRE":
+                    return 1 / 1000.0;
                 default:
                     return 0.0;
             }

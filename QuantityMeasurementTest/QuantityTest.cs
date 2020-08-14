@@ -286,5 +286,14 @@ namespace Tests
             bool result = quantity.Compare(quantityOne, quantityTwo, quantityThree);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void givenOneGallon_WhenComparedByFourLitre_ShouldReturnTrue()
+        {
+            Quantity quantityOne = new Quantity(1, "GALLON", "VOLUME");
+            Quantity quantityTwo = new Quantity(3.78, "LITRE", "VOLUME");
+            bool result = quantity.Compare(quantityOne, quantityTwo);
+            Assert.IsTrue(result);
+        }
     }
 }
