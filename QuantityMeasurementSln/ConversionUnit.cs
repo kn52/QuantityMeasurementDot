@@ -10,7 +10,8 @@ namespace QuantityMeasurementSln
 
         public Quantity AddUnit(Quantity quanityOne,Quantity quantityTwo)
         {
-            quanityOne.value = Math.Round(quanityOne.value + quantityTwo.value);
+            quanityOne.value = Math.Round(this.ConvertUnit(quanityOne) + this.ConvertUnit(quantityTwo));
+            quanityOne.unit = "INCH";
             return quanityOne;
         }
 
