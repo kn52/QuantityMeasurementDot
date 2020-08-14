@@ -1,8 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace QuantityMeasurementSln
 {
     public class ConversionUnit
     {
+        Dictionary<string,string> unit = new Dictionary<string,string>();
+        
+        public ConversionUnit()
+        {
+            unit.Add("LENGTH", "INCH");
+        }
+
         public double ConvertUnit(Quantity quantity)
         {
             return Math.Round(quantity.value * this.ConversionFactor(quantity.unit));
@@ -11,7 +20,7 @@ namespace QuantityMeasurementSln
         public Quantity AddUnit(Quantity quanityOne,Quantity quantityTwo)
         {
             quanityOne.value = Math.Round(this.ConvertUnit(quanityOne) + this.ConvertUnit(quantityTwo));
-            quanityOne.unit = "INCH";
+            quanityOne.unit = unit[quanityOne.baseUnit];
             return quanityOne;
         }
 
