@@ -295,5 +295,14 @@ namespace Tests
             bool result = quantity.Compare(quantityOne, quantityTwo);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void givenOneLitre_WhenComparedByFourMilliLitre_ShouldReturnTrue()
+        {
+            Quantity quantityOne = new Quantity(1, "LITRE", "VOLUME");
+            Quantity quantityTwo = new Quantity(1000, "MILLILITRE", "VOLUME");
+            bool result = quantity.Compare(quantityOne, quantityTwo);
+            Assert.IsTrue(result);
+        }
     }
 }
