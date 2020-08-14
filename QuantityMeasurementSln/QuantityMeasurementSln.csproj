@@ -44,6 +44,7 @@
     <Compile Include="Feet.cs" />
     <Compile Include="Inch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Quantity.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

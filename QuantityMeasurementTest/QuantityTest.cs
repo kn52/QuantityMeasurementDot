@@ -13,8 +13,8 @@ namespace Tests
         [Test]
         public void GivenZeroFeet_WhenComparedWithAnotherZeroFeet_ShouldReturnTrue()
         {
-            Feet feetOne = new Feet(0);
-            Feet feetTwo = new Feet(0);
+            Quantity feetOne = new Quantity(0, Quantity.UnitType.FEET);
+            Quantity feetTwo = new Quantity(0, Quantity.UnitType.FEET);
             bool result = feetOne.Equals(feetTwo);
             Assert.IsTrue(result);
         }
@@ -22,8 +22,8 @@ namespace Tests
         [Test]
         public void GivenZeroFeet_WhenComparedWithNull_ShouldReturnTrue()
         {
-            Feet feetOne = new Feet(0);
-            Feet feetTwo = null;
+            Quantity feetOne = new Quantity(0, Quantity.UnitType.FEET);
+            Quantity feetTwo = null;
             bool result = feetOne.Equals(feetTwo);
             Assert.IsTrue(result);
         }
@@ -31,17 +31,17 @@ namespace Tests
         [Test]
         public void GivenZeroFeet_WhenComparedByReference_ShouldReturnFalse()
         {
-            Feet feetOne = new Feet(0);
-            Feet feetTwo = new Feet(10);
+            Quantity feetOne = new Quantity(0, Quantity.UnitType.FEET);
+            Quantity feetTwo = new Quantity(12, Quantity.UnitType.FEET);
             bool result = feetOne.Equals(feetTwo);
             Assert.IsFalse(result);
         }
 
         [Test]
-        public void GivenZeroFeet_WhenComparedBySameReference_ShouldReturnFalse()
+        public void GivenZeroFeet_WhenComparedBySameReference_ShouldReturnTrue()
         {
-            Feet feetOne = new Feet(0);
-            Feet feetTwo = feetOne;
+            Quantity feetOne = new Quantity(0, Quantity.UnitType.FEET);
+            Quantity feetTwo = feetOne;
             bool result = feetOne.Equals(feetTwo);
             Assert.IsTrue(result);
         }
@@ -49,8 +49,8 @@ namespace Tests
         [Test]
         public void GivenZeroFeet_WhenComparedByType_ShouldReturnTrue()
         {
-            Feet feetOne = new Feet(0);
-            Feet feetTwo = new Feet();
+            Quantity feetOne = new Quantity(0, Quantity.UnitType.FEET);
+            Quantity feetTwo = new Quantity();
             bool result = feetOne.Equals(feetTwo);
             Assert.IsTrue(result);
         }
@@ -58,8 +58,8 @@ namespace Tests
         [Test]
         public void GivenZeroFeet_WhenComparedByValue_ShouldReturnTrue()
         {
-            Feet feetOne = new Feet(12);
-            Feet feetTwo = new Feet(12);
+            Quantity feetOne = new Quantity(12, Quantity.UnitType.FEET);
+            Quantity feetTwo = new Quantity(12, Quantity.UnitType.FEET);
             bool result = feetOne.Equals(feetTwo);
             Assert.IsTrue(result);
         }
@@ -67,8 +67,8 @@ namespace Tests
         [Test]
         public void GivenZeroFeet_WhenComparedByNegativeValue_ShouldReturnFalse()
         {
-            Feet feetOne = new Feet(-5);
-            Feet feetTwo = new Feet(10);
+            Quantity feetOne = new Quantity(-5, Quantity.UnitType.FEET);
+            Quantity feetTwo = new Quantity(12, Quantity.UnitType.FEET);
             bool result = feetOne.Equals(feetTwo);
             Assert.IsFalse(result);
         }
@@ -76,8 +76,8 @@ namespace Tests
         [Test]
         public void givenZeroInch_WhenComparedWithAnotherZeroInch_ShouldReturnTrue()
         {
-            Inch inchOne = new Inch(0);
-            Inch inchTwo = new Inch(0);
+            Quantity inchOne = new Quantity(0, Quantity.UnitType.INCH);
+            Quantity inchTwo = new Quantity(0, Quantity.UnitType.INCH);
             bool result = inchOne.Equals(inchTwo);
             Assert.IsTrue(result);
         }
@@ -85,8 +85,8 @@ namespace Tests
         [Test]
         public void givenZeroInch_WhenComparedWithNullValue_ShouldReturnTrue()
         {
-            Inch inchOne = new Inch(0);
-            Inch inchTwo = null;
+            Quantity inchOne = new Quantity(0, Quantity.UnitType.INCH);
+            Quantity inchTwo = null;
             bool result = inchOne.Equals(inchTwo);
             Assert.IsTrue(result);
         }
@@ -94,8 +94,8 @@ namespace Tests
         [Test]
         public void givenZeroInch_WhenComparedByReference_ShouldReturnFalse()
         {
-            Inch inchOne = new Inch(0);
-            Inch inchTwo = new Inch(12);
+            Quantity inchOne = new Quantity(0, Quantity.UnitType.INCH);
+            Quantity inchTwo = new Quantity(12, Quantity.UnitType.INCH);
             bool result = inchOne.Equals(inchTwo);
             Assert.IsFalse(result);
         }
@@ -103,8 +103,8 @@ namespace Tests
         [Test]
         public void givenZeroInch_WhenComparedBySameReference_ShouldReturnTrue()
         {
-            Inch inchOne = new Inch(0);
-            Inch inchTwo = inchOne;
+            Quantity inchOne = new Quantity(0, Quantity.UnitType.INCH);
+            Quantity inchTwo = inchOne;
             bool result = inchOne.Equals(inchTwo);
             Assert.IsTrue(result);
         }
@@ -112,8 +112,8 @@ namespace Tests
         [Test]
         public void givenZeroInch_WhenComparedByType_ShouldReturnTrue()
         {
-            Inch inchOne = new Inch(0);
-            Inch inchTwo = new Inch();
+            Quantity inchOne = new Quantity(0, Quantity.UnitType.INCH);
+            Quantity inchTwo = new Quantity();
             bool result = inchOne.Equals(inchTwo);
             Assert.IsTrue(result);
         }
@@ -121,8 +121,8 @@ namespace Tests
         [Test]
         public void givenZeroInch_WhenComparedByValue_ShouldReturnTrue()
         {
-            Inch inchOne = new Inch(12);
-            Inch inchTwo = new Inch(12);
+            Quantity inchOne = new Quantity(12, Quantity.UnitType.INCH);
+            Quantity inchTwo = new Quantity(12, Quantity.UnitType.INCH);
             bool result = inchOne.Equals(inchTwo);
             Assert.IsTrue(result);
         }
@@ -130,8 +130,8 @@ namespace Tests
         [Test]
         public void givenZeroInch_WhenComparedByNegativeValue_ShouldReturnFalse()
         {
-            Inch inchOne = new Inch(-12);
-            Inch inchTwo = new Inch(12);
+            Quantity inchOne = new Quantity(-12, Quantity.UnitType.INCH);
+            Quantity inchTwo = new Quantity(12, Quantity.UnitType.INCH);
             bool result = inchOne.Equals(inchTwo);
             Assert.IsFalse(result);
         }
