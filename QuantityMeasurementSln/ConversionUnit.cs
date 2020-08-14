@@ -5,7 +5,7 @@ namespace QuantityMeasurementSln
     {
         public double ConvertUnit(Quantity quantity)
         {
-            return quantity.value * this.ConversionFactor(quantity.unit);
+            return Math.Round(quantity.value * this.ConversionFactor(quantity.unit));
         }
 
         public double ConversionFactor (string unit)

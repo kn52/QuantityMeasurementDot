@@ -237,5 +237,14 @@ namespace Tests
             bool result = quantity.Compare(quantityOne, quantityTwo);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void givenTwoInch_WhenComparedByFiveCentimetre_ShouldReturnTrue()
+        {
+            Quantity quantityOne = new Quantity(2, "INCH");
+            Quantity quantityTwo = new Quantity(5, "CENTIMETRE");
+            bool result = quantity.Compare(quantityOne, quantityTwo);
+            Assert.IsTrue(result);
+        }
     }
 }
