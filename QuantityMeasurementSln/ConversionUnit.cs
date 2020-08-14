@@ -18,6 +18,8 @@ namespace QuantityMeasurementSln
                     return 12.0;
                 case "INCH":
                     return 1.0;
+                case "CENTIMETRE":
+                    return 1 / 2.54;
                 default:
                     return 0.0;
             }
