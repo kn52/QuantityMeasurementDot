@@ -41,8 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Feet.cs" />
-    <Compile Include="Inch.cs" />
+    <Compile Include="ConversionUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quantity.cs" />
   </ItemGroup>

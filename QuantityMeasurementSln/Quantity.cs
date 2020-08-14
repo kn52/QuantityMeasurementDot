@@ -1,32 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QuantityMeasurementSln
+﻿namespace QuantityMeasurementSln
 {
     public class Quantity
     {
-        public int value;
+        private int value;
 
-        public enum UnitType { FEET, INCH };
-
-        private UnitType type;
+        private string unit;
         public Quantity()
         { }
 
-        public Quantity(int value, UnitType type)
+        public Quantity(int value, string unit)
         {
             this.value = value;
-            this.type = type;
-        }
-
-        public bool Compare(Quantity q1, Quantity q2)
-        {
-            if (!q1.type.Equals(q2.type))
-                return false;
-            return q1.value == q2.value;
+            this.unit = unit;
         }
 
         public override bool Equals(object obj)
