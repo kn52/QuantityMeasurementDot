@@ -174,5 +174,14 @@ namespace Tests
             bool result = quantity.Compare(quantityOne, quantityTwo);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void givenTwelveInch_WhenComparedByOneFeet_ShouldReturnTrue()
+        {
+            Quantity quantityOne = new Quantity(12, "INCH");
+            Quantity quantityTwo = new Quantity(1, "FEET");
+            bool result = quantity.Compare(quantityOne, quantityTwo);
+            Assert.IsTrue(result);
+        }
     }
 }
