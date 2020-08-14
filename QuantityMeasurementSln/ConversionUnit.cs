@@ -8,12 +8,12 @@ namespace QuantityMeasurementSln
             return quantity.value * this.ConversionFactor(quantity.unit);
         }
 
-
-
         public double ConversionFactor (string unit)
         {
             switch (unit)
             {
+                case "YARD":
+                    return 36.0;
                 case "FEET":
                     return 12.0;
                 case "INCH":
