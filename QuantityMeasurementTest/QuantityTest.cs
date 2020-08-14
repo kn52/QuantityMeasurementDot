@@ -314,5 +314,15 @@ namespace Tests
             bool result = quantity.Compare(quantityOne, quantityTwo, quantityThree);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void givenOneLitrePlusThousandMilliLitre_WhenComparedByTwoLitre_ShouldReturnTrue()
+        {
+            Quantity quantityOne = new Quantity(1, "LITRE", "VOLUME");
+            Quantity quantityTwo = new Quantity(1000, "MILLILITRE", "VOLUME");
+            Quantity quantityThree = new Quantity(2, "LITRE", "VOLUME");
+            bool result = quantity.Compare(quantityOne, quantityTwo, quantityThree);
+            Assert.IsTrue(result);
+        }
     }
 }
