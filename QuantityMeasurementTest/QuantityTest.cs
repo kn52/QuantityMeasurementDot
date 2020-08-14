@@ -228,5 +228,14 @@ namespace Tests
             bool result = quantity.Compare(quantityOne, quantityTwo);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void givenOneYard_WhenComparedByThreeFeet_ShouldReturnTrue()
+        {
+            Quantity quantityOne = new Quantity(1, "YARD");
+            Quantity quantityTwo = new Quantity(3, "FEET");
+            bool result = quantity.Compare(quantityOne, quantityTwo);
+            Assert.IsTrue(result);
+        }
     }
 }
