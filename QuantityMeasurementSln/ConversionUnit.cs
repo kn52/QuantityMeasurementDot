@@ -8,9 +8,10 @@ namespace QuantityMeasurementSln
             return Math.Round(quantity.value * this.ConversionFactor(quantity.unit));
         }
 
-        public double AddUnit(Quantity quanityOne,Quantity quantityTwo)
+        public Quantity AddUnit(Quantity quanityOne,Quantity quantityTwo)
         {
-            return Math.Round(this.ConvertUnit(quanityOne)+this.ConvertUnit(quantityTwo));
+            quanityOne.value = Math.Round(quanityOne.value + quantityTwo.value);
+            return quanityOne;
         }
 
         public double ConversionFactor (string unit)

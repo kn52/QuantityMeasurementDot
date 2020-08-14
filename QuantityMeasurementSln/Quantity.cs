@@ -1,4 +1,6 @@
-﻿namespace QuantityMeasurementSln
+﻿using System;
+
+namespace QuantityMeasurementSln
 {
     public class Quantity
     {
@@ -18,8 +20,22 @@
             this.unit = unit;
         }
 
-        public bool Compare(Quantity quantityOne, Quantity quantityTwo)
+        public bool Compare(params Quantity[] quantity)
         {
+            Quantity quantityOne = null;
+            Quantity quantityTwo = null;
+            if (quantity.Length == 3)
+            {
+                quantityOne = conversionUnit.AddUnit(quantity[0], quantity[1]);
+                quantityTwo = quantity[2];
+            }
+
+            if (quantity.Length == 2)
+            {
+                quantityOne = quantity[0];
+                quantityTwo = quantity[1];
+            }
+
             return conversionUnit.ConvertUnit(quantityOne).Equals(conversionUnit.ConvertUnit(quantityTwo));
         }
 

@@ -246,5 +246,15 @@ namespace Tests
             bool result = quantity.Compare(quantityOne, quantityTwo);
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public void givenTwoInchPlusTwoInch_WhenComparedByFourInch_ShouldReturnTrue()
+        {
+            Quantity quantityOne = new Quantity(2, "INCH");
+            Quantity quantityTwo = new Quantity(2, "INCH");
+            Quantity quantityThree = new Quantity(4, "INCH");
+            bool result = quantity.Compare(quantityOne, quantityTwo,quantityThree);
+            Assert.IsTrue(result);
+        }
     }
 }
