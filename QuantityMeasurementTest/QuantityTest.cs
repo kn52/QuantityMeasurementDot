@@ -186,7 +186,7 @@ namespace Tests
         /// </summary>
 
         [Test]
-        public void GivenZeroFeet_WhenComparedByZeroInch_ShouldReturnTrue()
+        public void GivenZeroFeet_WhenComparedWithZeroInch_ShouldReturnTrue()
         {
             Quantity quantityOne= new Quantity(0, "FEET", "LENGTH");
             Quantity quantityTwo = new Quantity(0, "INCH", "LENGTH");
@@ -198,7 +198,7 @@ namespace Tests
         /// One Feet compared with One Inch
         /// </summary>
         [Test]
-        public void GivenOneFeet_WhenComparedByOneInch_ShouldReturnFalse()
+        public void GivenOneFeet_WhenComparedWithOneInch_ShouldReturnFalse()
         {
             Quantity quantityOne = new Quantity(1, "FEET", "LENGTH");
             Quantity quantityTwo = new Quantity(1, "INCH", "LENGTH");
@@ -210,7 +210,7 @@ namespace Tests
         /// One Inch compared with One Feet
         /// </summary>
         [Test]
-        public void GivenOneInch_WhenComparedByOneFeet_ShouldReturnFalse()
+        public void GivenOneInch_WhenComparedWithOneFeet_ShouldReturnFalse()
         {
             Quantity quantityOne = new Quantity(1, "INCH", "LENGTH");
             Quantity quantityTwo = new Quantity(1, "FEET", "LENGTH");
@@ -222,7 +222,7 @@ namespace Tests
         /// One Feet compared with Twelve Inch
         /// </summary>
         [Test]
-        public void GivenOneFeet_WhenComparedByTwelveInch_ShouldReturnTrue()
+        public void GivenOneFeet_WhenComparedWithTwelveInch_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "FEET", "LENGTH");
             Quantity quantityTwo = new Quantity(12, "INCH", "LENGTH");
@@ -234,7 +234,7 @@ namespace Tests
         /// Twelve Inch compared with One Feet
         /// </summary>
         [Test]
-        public void GivenTwelveInch_WhenComparedByOneFeet_ShouldReturnTrue()
+        public void GivenTwelveInch_WhenComparedWithOneFeet_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(12, "INCH", "LENGTH");
             Quantity quantityTwo = new Quantity(1, "FEET", "LENGTH");
@@ -246,7 +246,7 @@ namespace Tests
         /// Three Feet compared with One Yard
         /// </summary>
         [Test]
-        public void GivenThreeFeet_WhenComparedByOneYard_ShouldReturnTrue()
+        public void GivenThreeFeet_WhenComparedWithOneYard_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(3, "FEET", "LENGTH");
             Quantity quantityTwo = new Quantity(1, "YARD", "LENGTH");
@@ -258,7 +258,7 @@ namespace Tests
         /// One Feet compared with One Yard
         /// </summary>
         [Test]
-        public void GivenOneFeet_WhenComparedByOneYard_ShouldReturnFalse()
+        public void GivenOneFeet_WhenComparedWithOneYard_ShouldReturnFalse()
         {
             Quantity quantityOne = new Quantity(1, "FEET", "LENGTH");
             Quantity quantityTwo = new Quantity(1, "YARD", "LENGTH");
@@ -270,7 +270,7 @@ namespace Tests
         /// One Inch compared with One Yard
         /// </summary>
         [Test]
-        public void GivenOneInch_WhenComparedByOneYard_ShouldReturnFalse()
+        public void GivenOneInch_WhenComparedWithOneYard_ShouldReturnFalse()
         {
             Quantity quantityOne = new Quantity(1, "INCH", "LENGTH");
             Quantity quantityTwo = new Quantity(1, "YARD", "LENGTH");
@@ -282,7 +282,7 @@ namespace Tests
         /// One Yard compared with Thirty Six Inch
         /// </summary>
         [Test]
-        public void GivenOneYard_WhenComparedByThirtySixInch_ShouldReturnTrue()
+        public void GivenOneYard_WhenComparedWithThirtySixInch_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "YARD", "LENGTH");
             Quantity quantityTwo = new Quantity(36, "INCH", "LENGTH");
@@ -294,7 +294,7 @@ namespace Tests
         /// Thirty Six Inch compared with One Yard
         /// </summary>
         [Test]
-        public void GivenThirtySixInch_WhenComparedByOneYard_ShouldReturnTrue()
+        public void GivenThirtySixInch_WhenComparedWithOneYard_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(36, "INCH", "LENGTH");
             Quantity quantityTwo = new Quantity(1, "YARD", "LENGTH");
@@ -306,7 +306,7 @@ namespace Tests
         /// One Yard compared with Three Feet
         /// </summary>
         [Test]
-        public void GivenOneYard_WhenComparedByThreeFeet_ShouldReturnTrue()
+        public void GivenOneYard_WhenComparedWithThreeFeet_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "YARD", "LENGTH");
             Quantity quantityTwo = new Quantity(3, "FEET", "LENGTH");
@@ -318,7 +318,7 @@ namespace Tests
         /// Two Inch compared with Five Centimetre
         /// </summary>
         [Test]
-        public void GivenTwoInch_WhenComparedByFiveCentimetre_ShouldReturnTrue()
+        public void GivenTwoInch_WhenComparedWithFiveCentimetre_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(2, "INCH", "LENGTH");
             Quantity quantityTwo = new Quantity(5, "CENTIMETRE", "LENGTH");
@@ -330,7 +330,7 @@ namespace Tests
         /// Two Inch plus Two Inch compared with Four Inch
         /// </summary>
         [Test]
-        public void GivenTwoInchPlusTwoInch_WhenComparedByFourInch_ShouldReturnTrue()
+        public void GivenTwoInchPlusTwoInch_WhenComparedWithFourInch_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(2, "INCH", "LENGTH");
             Quantity quantityTwo = new Quantity(2, "INCH", "LENGTH");
@@ -343,7 +343,7 @@ namespace Tests
         /// One Feet plus Two Inch compared with Fourteen Inch
         /// </summary>
         [Test]
-        public void GivenOneFeetPlusTwoInch_WhenComparedByFourteenInch_ShouldReturnTrue()
+        public void GivenOneFeetPlusTwoInch_WhenComparedWithFourteenInch_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "FEET", "LENGTH");
             Quantity quantityTwo = new Quantity(2, "INCH", "LENGTH");
@@ -356,7 +356,7 @@ namespace Tests
         /// One Feet plus One Feet compared with Twenty Four Inch
         /// </summary>
         [Test]
-        public void GivenOneFeetPlusOneFeet_WhenComparedByTwentyFourInch_ShouldReturnTrue()
+        public void GivenOneFeetPlusOneFeet_WhenComparedWithTwentyFourInch_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "FEET", "LENGTH");
             Quantity quantityTwo = new Quantity(1, "FEET", "LENGTH");
@@ -369,7 +369,7 @@ namespace Tests
         /// One Inch plus Two point Five Centimetre compared with Three Inch
         /// </summary>
         [Test]
-        public void GivenOneInchPlusTwopointFiveCentimetre_WhenComparedByThreeInch_ShouldReturnTrue()
+        public void GivenOneInchPlusTwopointFiveCentimetre_WhenComparedWithThreeInch_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(2, "INCH", "LENGTH");
             Quantity quantityTwo = new Quantity(2.5, "CENTIMETRE", "LENGTH");
@@ -382,7 +382,7 @@ namespace Tests
         /// One Gallon compared with Four Litre
         /// </summary>
         [Test]
-        public void GivenOneGallon_WhenComparedByFourLitre_ShouldReturnTrue()
+        public void GivenOneGallon_WhenComparedWithFourLitre_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "GALLON", "VOLUME");
             Quantity quantityTwo = new Quantity(3.78, "LITRE", "VOLUME");
@@ -394,7 +394,7 @@ namespace Tests
         /// One Litre compared with Thousand Millilitre
         /// </summary>
         [Test]
-        public void GivenOneLitre_WhenComparedByThousandMilliLitre_ShouldReturnTrue()
+        public void GivenOneLitre_WhenComparedWithThousandMilliLitre_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "LITRE", "VOLUME");
             Quantity quantityTwo = new Quantity(1000, "MILLILITRE", "VOLUME");
@@ -406,7 +406,7 @@ namespace Tests
         /// One Gallon plus Four Litre compared with Eight Litre
         /// </summary>
         [Test]
-        public void GivenOneGallonPlusFourLitre_WhenComparedByEightLitre_ShouldReturnTrue()
+        public void GivenOneGallonPlusFourLitre_WhenComparedWithEightLitre_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "GALLON", "VOLUME");
             Quantity quantityTwo = new Quantity(3.78, "LITRE", "VOLUME");
@@ -419,7 +419,7 @@ namespace Tests
         /// One Litre plus Thousand Millilitre compared with Two Litre
         /// </summary>
         [Test]
-        public void GivenOneLitrePlusThousandMilliLitre_WhenComparedByTwoLitre_ShouldReturnTrue()
+        public void GivenOneLitrePlusThousandMilliLitre_WhenComparedWithTwoLitre_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "LITRE", "VOLUME");
             Quantity quantityTwo = new Quantity(1000, "MILLILITRE", "VOLUME");
@@ -432,7 +432,7 @@ namespace Tests
         /// One Kilogram compared with Thousand Gram
         /// </summary>
         [Test]
-        public void GivenOneKilogramWhenComparedByThousandGram_ShouldReturnTrue()
+        public void GivenOneKilogramWhenComparedWithThousandGram_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "KILOGRAM", "WEIGHT");
             Quantity quantityTwo = new Quantity(1000, "GRAM", "WEIGHT");
@@ -444,7 +444,7 @@ namespace Tests
         /// One Tonne compared with Thousand Kilogram
         /// </summary>
         [Test]
-        public void GivenOneTonneWhenComparedByThousandKilogram_ShouldReturnTrue()
+        public void GivenOneTonneWhenComparedWithThousandKilogram_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "TONNE", "WEIGHT");
             Quantity quantityTwo = new Quantity(1000, "KILOGRAM", "WEIGHT");
@@ -456,7 +456,7 @@ namespace Tests
         /// One Tonne plus Thousand Gram compared with Thousand One Kilogram
         /// </summary>
         [Test]
-        public void GivenOneTonnePlusThousandGramWhenComparedByThousandOneKilogram_ShouldReturnTrue()
+        public void GivenOneTonnePlusThousandGramWhenComparedWithThousandOneKilogram_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "TONNE", "WEIGHT");
             Quantity quantityTwo = new Quantity(1000, "GRAM", "WEIGHT");
@@ -465,6 +465,17 @@ namespace Tests
             Assert.IsTrue(result);
         }
 
+        /// <summary>
+        /// Two Hundred Twelve Fahrenheit compared with Hundred Celsius
+        /// </summary>
+        [Test]
+        public void GivenTwoHundredTwelveFahrenheit_WhenComparedWithHundredCelsius_ShouldReturnTrue()
+        {
+            Quantity quantityOne = new Quantity(212, "FAHRENHEIT", "TEMPERATURE");
+            Quantity quantityTwo = new Quantity(100, "CELSIUS", "TEMPERATURE");
+            bool result = quantity.Compare(quantityOne, quantityTwo);
+            Assert.IsTrue(result);
+        }
     }
 }
 
