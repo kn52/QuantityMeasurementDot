@@ -33,6 +33,11 @@ namespace QuantityMeasurementSln
         /// <returns>Converted value.</returns>
         public double ConvertUnit(Quantity quantity)
         {
+            if (quantity.Unit.Equals("FAHRENHEIT"))
+            {
+                return Math.Round((quantity.Value-32) * this.ConversionFactor(quantity.Unit));
+            }
+
             return Math.Round(quantity.Value * this.ConversionFactor(quantity.Unit));
         }
 
