@@ -1,63 +1,108 @@
-﻿using System;
+﻿// <copyright file="Quantity.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace QuantityMeasurementSln
 {
+    using System;
+
+    #pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
+    /// <summary>
+    /// Quantity Class.
+    /// </summary>
     public class Quantity
+    #pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     {
-        public double value;
+        public double Value;
 
-        public string unit;
+        public string Unit;
 
-        public string baseUnit;
+        public string BaseUnit;
 
-        private ConversionUnit conversionUnit;
+        private readonly ConversionUnit conversionUnit;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Quantity"/> class.
+        /// </summary>
         public Quantity()
         {
-            conversionUnit = new ConversionUnit();
+            this.conversionUnit = new ConversionUnit();
         }
 
-        public Quantity(double value, string unit,string baseUnit)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Quantity"/> class.
+        /// Constructor to create object.
+        /// </summary>
+        /// <param name="value">Value of the object.</param>
+        /// <param name="unit">unit of the object.</param>
+        /// <param name="baseUnit">Basic unit object belongs to.</param>
+        public Quantity(double value, string unit, string baseUnit)
         {
-            this.value = value;
-            this.unit = unit;
-            this.baseUnit = baseUnit;
+            this.Value = value;
+            this.Unit = unit;
+            this.BaseUnit = baseUnit;
         }
 
         private bool AddCompare(params Quantity[] quantity)
         {
-            if (!quantity[0].baseUnit.Equals(quantity[1].baseUnit) && !quantity[0].baseUnit.Equals(quantity[2].baseUnit))
+            if (!quantity[0].BaseUnit.Equals(quantity[1].BaseUnit) && !quantity[0].BaseUnit.Equals(quantity[2].BaseUnit))
+            {
                 return false;
-            Quantity quantityOne = conversionUnit.AddUnit(quantity[0],quantity[1]);
+            }
+
+            Quantity quantityOne = this.conversionUnit.AddUnit(quantity[0], quantity[1]);
             Quantity quantityTwo = quantity[2];
-            return conversionUnit.ConvertUnit(quantityOne).Equals(conversionUnit.ConvertUnit(quantityTwo));
+            return this.conversionUnit.ConvertUnit(quantityOne).Equals(this.conversionUnit.ConvertUnit(quantityTwo));
         }
 
+        /// <summary>
+        /// Compare two units.
+        /// </summary>
+        /// <param name="quantity">Quantities to be compared.</param>
+        /// <returns>boolean true or false.</returns>
         public bool Compare(params Quantity[] quantity)
         {
             if (quantity.Length == 3)
+            {
                 return this.AddCompare(quantity);
+            }
 
-            if (!quantity[0].baseUnit.Equals(quantity[1].baseUnit))
+            if (!quantity[0].BaseUnit.Equals(quantity[1].BaseUnit))
+            {
                 return false;
+            }
 
-            return conversionUnit.ConvertUnit(quantity[0]).Equals(conversionUnit.ConvertUnit(quantity[1]));
+            return this.conversionUnit.ConvertUnit(quantity[0]).Equals(this.conversionUnit.ConvertUnit(quantity[1]));
         }
 
+        /// <summary>
+        /// Equals method.
+        /// </summary>
+        /// <param name="obj">Object of Quantity.</param>
+        /// <returns>boolean true or false.</returns>
         public override bool Equals(object obj)
         {
             Quantity measurement = obj as Quantity;
 
             if (obj == this)
+            {
                 return true;
+            }
 
             if (obj == null || obj.GetType() != this.GetType())
+            {
                 return true;
+            }
 
-            if (obj as Quantity != null && value == measurement.value)
+            if (obj as Quantity != null && this.Value == measurement.Value)
+            {
                 return true;
+            }
 
             if (obj != this)
+            {
                 return false;
+            }
 
             return false;
         }

@@ -1,31 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// <copyright file="ConversionUnit.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace QuantityMeasurementSln
 {
+    using System;
+    using System.Collections.Generic;
+
+    /// <summary>
+    /// Conversion Unit class.
+    /// </summary>
     public class ConversionUnit
     {
-        Dictionary<string,string> unit = new Dictionary<string,string>();
-        
+        private readonly Dictionary<string, string> unit = new Dictionary<string, string>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConversionUnit"/> class.
+        /// Constructor to initialise dictionary.
+        /// </summary>
         public ConversionUnit()
         {
-            unit.Add("LENGTH", "INCH");
-            unit.Add("VOLUME", "LITRE");
+            this.unit.Add("LENGTH", "INCH");
+            this.unit.Add("VOLUME", "LITRE");
         }
 
+        /// <summary>
+        /// Convert Units into lowest unit.
+        /// </summary>
+        /// <param name="quantity">Quantity is going to be converted.</param>
+        /// <returns>Converted value.</returns>
         public double ConvertUnit(Quantity quantity)
         {
-            return Math.Round(quantity.value * this.ConversionFactor(quantity.unit));
+            return Math.Round(quantity.Value * this.ConversionFactor(quantity.Unit));
         }
 
-        public Quantity AddUnit(Quantity quanityOne,Quantity quantityTwo)
+        /// <summary>
+        /// Add function to add two units.
+        /// </summary>
+        /// <param name="quanityOne">Quantity One.</param>
+        /// <param name="quantityTwo">Quantity Two.</param>
+        /// <returns>Addition of two  quantity.</returns>
+        public Quantity AddUnit(Quantity quanityOne, Quantity quantityTwo)
         {
-            quanityOne.value = Math.Round(this.ConvertUnit(quanityOne) + this.ConvertUnit(quantityTwo));
-            quanityOne.unit = unit[quanityOne.baseUnit];
+            quanityOne.Value = Math.Round(this.ConvertUnit(quanityOne) + this.ConvertUnit(quantityTwo));
+            quanityOne.Unit = this.unit[quanityOne.BaseUnit];
             return quanityOne;
         }
 
-        public double ConversionFactor (string unit)
+        /// <summary>
+        /// Converversion Factor.
+        /// </summary>
+        /// <param name="unit">Unit of variable to be converted.</param>
+        /// <returns>Conversion value to convert the unit.</returns>
+        public double ConversionFactor(string unit)
         {
             switch (unit)
             {
