@@ -22,6 +22,7 @@ namespace QuantityMeasurementSln
         {
             this.unit.Add("LENGTH", "INCH");
             this.unit.Add("VOLUME", "LITRE");
+            this.unit.Add("WEIGHT", "KILOGRAM");
         }
 
         /// <summary>
@@ -69,6 +70,12 @@ namespace QuantityMeasurementSln
                 case "LITRE":
                     return 1.0;
                 case "MILLILITRE":
+                    return 1 / 1000.0;
+                case "TONNE":
+                    return 1000.0;
+                case "KILOGRAM":
+                    return 1.0;
+                case "GRAM":
                     return 1 / 1000.0;
                 default:
                     return 0.0;
