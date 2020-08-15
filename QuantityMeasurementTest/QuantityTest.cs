@@ -188,9 +188,9 @@ namespace Tests
         [Test]
         public void GivenZeroFeet_WhenComparedByZeroInch_ShouldReturnTrue()
         {
-            Quantity quantityOne = new Quantity(0, "FEET", "LENGTH");
+            Quantity quantityOne= new Quantity(0, "FEET", "LENGTH");
             Quantity quantityTwo = new Quantity(0, "INCH", "LENGTH");
-            bool result = quantity.Compare(quantityOne, quantityTwo);
+            bool result = quantity.Compare(quantityOne,quantityTwo);
             Assert.IsTrue(result);
         }
 
@@ -335,7 +335,7 @@ namespace Tests
             Quantity quantityOne = new Quantity(2, "INCH", "LENGTH");
             Quantity quantityTwo = new Quantity(2, "INCH", "LENGTH");
             Quantity quantityThree = new Quantity(4, "INCH", "LENGTH");
-            bool result = quantity.Compare(quantityOne, quantityTwo, quantityThree);
+            bool result = quantity.Compare(quantityOne, quantityTwo,quantityThree);
             Assert.IsTrue(result);
         }
 
@@ -436,6 +436,18 @@ namespace Tests
         {
             Quantity quantityOne = new Quantity(1, "KILOGRAM", "WEIGHT");
             Quantity quantityTwo = new Quantity(1000, "GRAM", "WEIGHT");
+            bool result = quantity.Compare(quantityOne, quantityTwo);
+            Assert.IsTrue(result);
+        }
+
+        /// <summary>
+        /// One Tonne compared with Thousand Kilogram
+        /// </summary>
+        [Test]
+        public void givenOneTonneWhenComparedByThousandKilogram_ShouldReturnTrue()
+        {
+            Quantity quantityOne = new Quantity(1, "TONNE", "WEIGHT");
+            Quantity quantityTwo = new Quantity(1000, "KILOGRAM", "WEIGHT");
             bool result = quantity.Compare(quantityOne, quantityTwo);
             Assert.IsTrue(result);
         }
