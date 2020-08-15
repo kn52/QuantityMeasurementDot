@@ -432,7 +432,7 @@ namespace Tests
         /// One Kilogram compared with Thousand Gram
         /// </summary>
         [Test]
-        public void givenOneKilogramWhenComparedByThousandGram_ShouldReturnTrue()
+        public void GivenOneKilogramWhenComparedByThousandGram_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "KILOGRAM", "WEIGHT");
             Quantity quantityTwo = new Quantity(1000, "GRAM", "WEIGHT");
@@ -444,7 +444,7 @@ namespace Tests
         /// One Tonne compared with Thousand Kilogram
         /// </summary>
         [Test]
-        public void givenOneTonneWhenComparedByThousandKilogram_ShouldReturnTrue()
+        public void GivenOneTonneWhenComparedByThousandKilogram_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "TONNE", "WEIGHT");
             Quantity quantityTwo = new Quantity(1000, "KILOGRAM", "WEIGHT");
@@ -456,7 +456,7 @@ namespace Tests
         /// One Tonne plus Thousand Gram compared with Thousand One Kilogram
         /// </summary>
         [Test]
-        public void givenOneTonnePlusThousandGramWhenComparedByThousandOneKilogram_ShouldReturnTrue()
+        public void GivenOneTonnePlusThousandGramWhenComparedByThousandOneKilogram_ShouldReturnTrue()
         {
             Quantity quantityOne = new Quantity(1, "TONNE", "WEIGHT");
             Quantity quantityTwo = new Quantity(1000, "GRAM", "WEIGHT");
@@ -464,5 +464,7 @@ namespace Tests
             bool result = quantity.Compare(quantityOne, quantityTwo, quantityThree);
             Assert.IsTrue(result);
         }
+
     }
 }
+

@@ -23,6 +23,7 @@ namespace QuantityMeasurementSln
             this.unit.Add("LENGTH", "INCH");
             this.unit.Add("VOLUME", "LITRE");
             this.unit.Add("WEIGHT", "KILOGRAM");
+            this.unit.Add("TEMPERATURE", "CELSIUS");
         }
 
         /// <summary>
@@ -77,6 +78,10 @@ namespace QuantityMeasurementSln
                     return 1.0;
                 case "GRAM":
                     return 1 / 1000.0;
+                case "FAHRENHEIT":
+                    return 1 / 1.8;
+                case "CELSIUS":
+                    return 1.0;
                 default:
                     return 0.0;
             }

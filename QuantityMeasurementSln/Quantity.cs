@@ -4,19 +4,24 @@
 
 namespace QuantityMeasurementSln
 {
-    using System;
-
-    #pragma warning disable CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     /// <summary>
     /// Quantity Class.
     /// </summary>
     public class Quantity
-    #pragma warning restore CS0659 // Type overrides Object.Equals(object o) but does not override Object.GetHashCode()
     {
+        /// <summary>
+        /// Object value.
+        /// </summary>
         public double Value;
 
+        /// <summary>
+        /// Object unit like feet gram.
+        /// </summary>
         public string Unit;
 
+        /// <summary>
+        /// Object basic unit like length weight.
+        /// </summary>
         public string BaseUnit;
 
         private readonly ConversionUnit conversionUnit;
@@ -41,18 +46,6 @@ namespace QuantityMeasurementSln
             this.Value = value;
             this.Unit = unit;
             this.BaseUnit = baseUnit;
-        }
-
-        private bool AddCompare(params Quantity[] quantity)
-        {
-            if (!quantity[0].BaseUnit.Equals(quantity[1].BaseUnit) && !quantity[0].BaseUnit.Equals(quantity[2].BaseUnit))
-            {
-                return false;
-            }
-
-            Quantity quantityOne = this.conversionUnit.AddUnit(quantity[0], quantity[1]);
-            Quantity quantityTwo = quantity[2];
-            return this.conversionUnit.ConvertUnit(quantityOne).Equals(this.conversionUnit.ConvertUnit(quantityTwo));
         }
 
         /// <summary>
@@ -105,6 +98,32 @@ namespace QuantityMeasurementSln
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Get Hash Code.
+        /// </summary>
+        /// <returns>Hash code.</returns>
+        public override int GetHashCode()
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// Add Compare method add two units and compare with third unit.
+        /// </summary>
+        /// <param name="quantity">Quantities which are compared.</param>
+        /// <returns>boolean true or false.</returns>
+        private bool AddCompare(params Quantity[] quantity)
+        {
+            if (!quantity[0].BaseUnit.Equals(quantity[1].BaseUnit) && !quantity[0].BaseUnit.Equals(quantity[2].BaseUnit))
+            {
+                return false;
+            }
+
+            Quantity quantityOne = this.conversionUnit.AddUnit(quantity[0], quantity[1]);
+            Quantity quantityTwo = quantity[2];
+            return this.conversionUnit.ConvertUnit(quantityOne).Equals(this.conversionUnit.ConvertUnit(quantityTwo));
         }
     }
 }
