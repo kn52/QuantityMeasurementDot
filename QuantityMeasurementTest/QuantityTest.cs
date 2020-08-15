@@ -451,5 +451,18 @@ namespace Tests
             bool result = quantity.Compare(quantityOne, quantityTwo);
             Assert.IsTrue(result);
         }
+
+        /// <summary>
+        /// One Tonne plus Thousand Gram compared with Thousand One Kilogram
+        /// </summary>
+        [Test]
+        public void givenOneTonnePlusThousandGramWhenComparedByThousandOneKilogram_ShouldReturnTrue()
+        {
+            Quantity quantityOne = new Quantity(1, "TONNE", "WEIGHT");
+            Quantity quantityTwo = new Quantity(1000, "GRAM", "WEIGHT");
+            Quantity quantityThree = new Quantity(1001, "KILOGRAM", "WEIGHT");
+            bool result = quantity.Compare(quantityOne, quantityTwo, quantityThree);
+            Assert.IsTrue(result);
+        }
     }
 }
