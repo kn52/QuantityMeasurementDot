@@ -1,31 +1,16 @@
-﻿// <copyright file="ConversionUnit.cs" company="PlaceholderCompany">
+﻿// <copyright file="Length.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace QuantityMeasurementSln
+namespace QuantityMeasurementSln.Conversion
 {
     using System;
-    using System.Collections.Generic;
 
     /// <summary>
-    /// Conversion Unit class.
+    /// Lenght conversion class.
     /// </summary>
-    public class ConversionUnit
+    public class Length : IConvertUnit
     {
-        private readonly Dictionary<string, string> unit = new Dictionary<string, string>();
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConversionUnit"/> class.
-        /// Constructor to initialise dictionary.
-        /// </summary>
-        public ConversionUnit()
-        {
-            this.unit.Add("LENGTH", "INCH");
-            this.unit.Add("VOLUME", "LITRE");
-            this.unit.Add("WEIGHT", "KILOGRAM");
-            this.unit.Add("TEMPERATURE", "CELSIUS");
-        }
-
         /// <summary>
         /// Convert Units into lowest unit.
         /// </summary>
@@ -33,11 +18,6 @@ namespace QuantityMeasurementSln
         /// <returns>Converted value.</returns>
         public double ConvertUnit(Quantity quantity)
         {
-            if (quantity.Unit.Equals("FAHRENHEIT"))
-            {
-                return Math.Round((quantity.Value-32) * this.ConversionFactor(quantity.Unit));
-            }
-
             return Math.Round(quantity.Value * this.ConversionFactor(quantity.Unit));
         }
 
@@ -50,7 +30,7 @@ namespace QuantityMeasurementSln
         public Quantity AddUnit(Quantity quanityOne, Quantity quantityTwo)
         {
             quanityOne.Value = Math.Round(this.ConvertUnit(quanityOne) + this.ConvertUnit(quantityTwo));
-            quanityOne.Unit = this.unit[quanityOne.BaseUnit];
+            quanityOne.Unit = "INCH";
             return quanityOne;
         }
 
@@ -59,7 +39,7 @@ namespace QuantityMeasurementSln
         /// </summary>
         /// <param name="unit">Unit of variable to be converted.</param>
         /// <returns>Conversion value to convert the unit.</returns>
-        public double ConversionFactor(string unit)
+        private double ConversionFactor(string unit)
         {
             switch (unit)
             {
@@ -71,22 +51,6 @@ namespace QuantityMeasurementSln
                     return 1.0;
                 case "CENTIMETRE":
                     return 1 / 2.54;
-                case "GALLON":
-                    return 3.78;
-                case "LITRE":
-                    return 1.0;
-                case "MILLILITRE":
-                    return 1 / 1000.0;
-                case "TONNE":
-                    return 1000.0;
-                case "KILOGRAM":
-                    return 1.0;
-                case "GRAM":
-                    return 1 / 1000.0;
-                case "FAHRENHEIT":
-                    return 1 / 1.8;
-                case "CELSIUS":
-                    return 1.0;
                 default:
                     return 0.0;
             }

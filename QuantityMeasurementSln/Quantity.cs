@@ -4,6 +4,8 @@
 
 namespace QuantityMeasurementSln
 {
+    using QuantityMeasurementSln.Conversion;
+
     /// <summary>
     /// Quantity Class.
     /// </summary>
@@ -24,14 +26,13 @@ namespace QuantityMeasurementSln
         /// </summary>
         public string BaseUnit;
 
-        private readonly ConversionUnit conversionUnit;
+        private IConvertUnit convertUnit;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Quantity"/> class.
         /// </summary>
         public Quantity()
         {
-            this.conversionUnit = new ConversionUnit();
         }
 
         /// <summary>
@@ -65,7 +66,8 @@ namespace QuantityMeasurementSln
                 return false;
             }
 
-            return this.conversionUnit.ConvertUnit(quantity[0]).Equals(this.conversionUnit.ConvertUnit(quantity[1]));
+            this.SetConversionUnitClassObject(quantity[0].BaseUnit);
+            return this.convertUnit.ConvertUnit(quantity[0]).Equals(this.convertUnit.ConvertUnit(quantity[1]));
         }
 
         /// <summary>
@@ -121,9 +123,42 @@ namespace QuantityMeasurementSln
                 return false;
             }
 
-            Quantity quantityOne = this.conversionUnit.AddUnit(quantity[0], quantity[1]);
+            this.SetConversionUnitClassObject(quantity[0].BaseUnit);
+            Quantity quantityOne = this.convertUnit.AddUnit(quantity[0], quantity[1]);
             Quantity quantityTwo = quantity[2];
-            return this.conversionUnit.ConvertUnit(quantityOne).Equals(this.conversionUnit.ConvertUnit(quantityTwo));
+            return this.convertUnit.ConvertUnit(quantityOne).Equals(this.convertUnit.ConvertUnit(quantityTwo));
+        }
+
+        private void SetConversionUnitClassObject(string baseUnit)
+        {
+            switch (baseUnit)
+            {
+                case "LENGTH":
+                    this.SetConvertUnit(new Length());
+                    break;
+
+                case "VOLUME":
+                    this.SetConvertUnit(new Volume());
+                    break;
+
+                case "WEIGHT":
+                    this.SetConvertUnit(new Weight());
+                    break;
+
+                case "TEMPERATURE":
+                    this.SetConvertUnit(new Temperature());
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Quantity"/> class.
+        /// ConvertUnit object setter.
+        /// </summary>
+        /// <param name="convertUnit">Base unit of class object.</param>
+        private void SetConvertUnit(IConvertUnit convertUnit)
+        {
+            this.convertUnit = convertUnit;
         }
     }
 }

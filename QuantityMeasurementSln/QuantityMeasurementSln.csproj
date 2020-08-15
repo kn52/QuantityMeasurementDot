@@ -42,6 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConversionUnit.cs" />
+    <Compile Include="Conversion\IConvertUnit.cs" />
+    <Compile Include="Conversion\Length.cs" />
+    <Compile Include="Conversion\Temperature.cs" />
+    <Compile Include="Conversion\Volume.cs" />
+    <Compile Include="Conversion\Weight.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quantity.cs" />
@@ -49,6 +54,7 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="stylecop.json" />
+    <None Include="stylecop1.json" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
