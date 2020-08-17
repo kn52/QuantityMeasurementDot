@@ -5,6 +5,7 @@
 namespace QuantityMeasurementSln.Conversion
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Volume conversion class.
@@ -12,13 +13,28 @@ namespace QuantityMeasurementSln.Conversion
     public class Volume : IConvertUnit
     {
         /// <summary>
+        /// Unit.
+        /// </summary>
+        private readonly Dictionary<string, double> unit = new Dictionary<string, double>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Volume"/> class.
+        /// </summary>
+        public Volume()
+        {
+            this.unit.Add("GALLON", 3.78);
+            this.unit.Add("LITRE", 1.0);
+            this.unit.Add("MILLILITRE", 1 / 1000.0);
+        }
+
+        /// <summary>
         /// Convert Units into lowest unit.
         /// </summary>
         /// <param name="quantity">Quantity is going to be converted.</param>
         /// <returns>Converted value.</returns>
         public double ConvertUnit(Quantity quantity)
         {
-            return Math.Round(quantity.Value * this.ConversionFactor(quantity.Unit));
+            return Math.Round(quantity.Value * this.unit[quantity.Unit]);
         }
 
         /// <summary>
@@ -29,29 +45,18 @@ namespace QuantityMeasurementSln.Conversion
         /// <returns>Addition of two  quantity.</returns>
         public Quantity AddUnit(Quantity quanityOne, Quantity quantityTwo)
         {
-            quanityOne.Value = Math.Round(this.ConvertUnit(quanityOne) + this.ConvertUnit(quantityTwo));
+            quanityOne.Value = this.ConvertUnit(quanityOne) + this.ConvertUnit(quantityTwo);
             quanityOne.Unit = "LITRE";
             return quanityOne;
         }
 
         /// <summary>
-        /// Converversion Factor.
+        /// Get Unit.
         /// </summary>
-        /// <param name="unit">Unit of variable to be converted.</param>
-        /// <returns>Conversion value to convert the unit.</returns>
-        private double ConversionFactor(string unit)
+        /// <returns>Dictionary.</returns>
+        public dynamic GetUnit()
         {
-            switch (unit)
-            {
-                case "GALLON":
-                    return 3.78;
-                case "LITRE":
-                    return 1.0;
-                case "MILLILITRE":
-                    return 1 / 1000.0;
-                default:
-                    return 0.0;
-            }
+            return this.unit;
         }
     }
 }

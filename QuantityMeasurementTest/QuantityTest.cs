@@ -68,7 +68,7 @@ namespace Tests
         public void GivenZeroFeet_WhenComparedByType_ShouldReturnTrue()
         {
             Quantity feetOne = new Quantity(0, "FEET", "LENGTH");
-            Quantity feetTwo = new Quantity();
+            Quantity feetTwo = new Quantity(0, "INCH", "LENGTH");
             bool result = feetOne.Equals(feetTwo);
             Assert.IsTrue(result);
         }
@@ -152,7 +152,7 @@ namespace Tests
         public void GivenZeroInch_WhenComparedByType_ShouldReturnTrue()
         {
             Quantity inchOne = new Quantity(0, "INCH", "LENGTH");
-            Quantity inchTwo = new Quantity();
+            Quantity inchTwo = new Quantity(0, "FEET", "LENGTH");
             bool result = inchOne.Equals(inchTwo);
             Assert.IsTrue(result);
         }

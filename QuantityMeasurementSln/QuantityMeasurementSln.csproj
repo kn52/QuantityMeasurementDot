@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConversionUnit.cs" />
     <Compile Include="Conversion\IConvertUnit.cs" />
     <Compile Include="Conversion\Length.cs" />
     <Compile Include="Conversion\Temperature.cs" />

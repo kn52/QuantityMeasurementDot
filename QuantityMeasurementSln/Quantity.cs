@@ -5,12 +5,16 @@
 namespace QuantityMeasurementSln
 {
     using QuantityMeasurementSln.Conversion;
+    using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Quantity Class.
     /// </summary>
     public class Quantity
     {
+        private const string V = "LENGTH";
+
         /// <summary>
         /// Object value.
         /// </summary>
@@ -91,7 +95,7 @@ namespace QuantityMeasurementSln
 
             if (obj as Quantity != null && this.Value == measurement.Value)
             {
-                return true;
+                return this.CompareSubUnit(measurement);
             }
 
             if (obj != this)
@@ -129,6 +133,10 @@ namespace QuantityMeasurementSln
             return this.convertUnit.ConvertUnit(quantityOne).Equals(this.convertUnit.ConvertUnit(quantityTwo));
         }
 
+        /// <summary>
+        /// Set Class Object.
+        /// </summary>
+        /// <param name="baseUnit">Base Unit.</param>
         private void SetConversionUnitClassObject(string baseUnit)
         {
             switch (baseUnit)
@@ -152,13 +160,31 @@ namespace QuantityMeasurementSln
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Quantity"/> class.
-        /// ConvertUnit object setter.
+        /// Set Convert Unit Class Object.
         /// </summary>
-        /// <param name="convertUnit">Base unit of class object.</param>
+        /// <param name="convertUnit">Class Object.</param>
         private void SetConvertUnit(IConvertUnit convertUnit)
         {
             this.convertUnit = convertUnit;
+        }
+
+        /// <summary>
+        /// Check sub unit conversion value.
+        /// </summary>
+        /// <param name="quantity">Quantity Object.</param>
+        /// <returns>Boolean true or false.</returns>
+        private bool CompareSubUnit(Quantity quantity)
+        {
+            this.SetConversionUnitClassObject(quantity.BaseUnit);
+            double valueOne = this.convertUnit.GetUnit()[quantity.Unit];
+            this.SetConversionUnitClassObject(this.BaseUnit);
+            double valueTwo = this.convertUnit.GetUnit()[this.Unit];
+            if (valueOne > 0 && valueTwo > 0)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

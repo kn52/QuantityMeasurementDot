@@ -5,12 +5,27 @@
 namespace QuantityMeasurementSln.Conversion
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Temperature conversion class.
     /// </summary>
     public class Temperature : IConvertUnit
     {
+        /// <summary>
+        /// Unit.
+        /// </summary>
+        private readonly Dictionary<string, double> unit = new Dictionary<string, double>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Temperature"/> class.
+        /// </summary>
+        public Temperature()
+        {
+            this.unit.Add("FAHRENHEIT", 1 / 1.8);
+            this.unit.Add("CELSIUS", 1.0);
+        }
+
         /// <summary>
         /// Convert Units into lowest unit.
         /// </summary>
@@ -20,10 +35,10 @@ namespace QuantityMeasurementSln.Conversion
         {
             if (quantity.Unit.Equals("FAHRENHEIT"))
             {
-                return Math.Round((quantity.Value - 32) * this.ConversionFactor(quantity.Unit));
+                return Math.Round((quantity.Value - 32) * this.unit[quantity.Unit]);
             }
 
-            return Math.Round(quantity.Value * this.ConversionFactor(quantity.Unit));
+            return Math.Round(quantity.Value * this.unit[quantity.Unit]);
         }
 
         /// <summary>
@@ -34,27 +49,18 @@ namespace QuantityMeasurementSln.Conversion
         /// <returns>Addition of two  quantity.</returns>
         public Quantity AddUnit(Quantity quanityOne, Quantity quantityTwo)
         {
-            quanityOne.Value = Math.Round(this.ConvertUnit(quanityOne) + this.ConvertUnit(quantityTwo));
+            quanityOne.Value = this.ConvertUnit(quanityOne) + this.ConvertUnit(quantityTwo);
             quanityOne.Unit = "CELSIUS";
             return quanityOne;
         }
 
         /// <summary>
-        /// Converversion Factor.
+        /// Get Unit.
         /// </summary>
-        /// <param name="unit">Unit of variable to be converted.</param>
-        /// <returns>Conversion value to convert the unit.</returns>
-        private double ConversionFactor(string unit)
+        /// <returns>Dictionary.</returns>
+        public dynamic GetUnit()
         {
-            switch (unit)
-            {
-                case "FAHRENHEIT":
-                    return 1 / 1.8;
-                case "CELSIUS":
-                    return 1.0;
-                default:
-                    return 0.0;
-            }
+            return this.unit;
         }
     }
 }

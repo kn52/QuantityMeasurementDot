@@ -2,6 +2,8 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using System.Collections.Generic;
+
 namespace QuantityMeasurementSln.Conversion
 {
     /// <summary>
@@ -13,7 +15,7 @@ namespace QuantityMeasurementSln.Conversion
         /// Converting one unit to another.
         /// </summary>
         /// <param name="quanity">Object whose value is to be converted.</param>
-        /// <returns>Quantity Object</returns>
+        /// <returns>Quantity Object.</returns>
         double ConvertUnit(Quantity quanity);
 
         /// <summary>
@@ -23,5 +25,11 @@ namespace QuantityMeasurementSln.Conversion
         /// <param name="quantityTwo">Quantity Two.</param>
         /// <returns>Addition of two  quantity.</returns>
         Quantity AddUnit(Quantity quanityOne, Quantity quantityTwo);
+
+        /// <summary>
+        /// Get Unit.
+        /// </summary>
+        /// <returns>Dictionary.</returns>
+        dynamic GetUnit();
     }
 }

@@ -5,6 +5,7 @@
 namespace QuantityMeasurementSln.Conversion
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Lenght conversion class.
@@ -12,13 +13,29 @@ namespace QuantityMeasurementSln.Conversion
     public class Length : IConvertUnit
     {
         /// <summary>
+        /// Unit.
+        /// </summary>
+        private readonly Dictionary<string, double> unit = new Dictionary<string, double>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Length"/> class.
+        /// </summary>
+        public Length()
+        {
+            this.unit.Add("YARD", 36.0);
+            this.unit.Add("FEET", 12.0);
+            this.unit.Add("INCH", 1.0);
+            this.unit.Add("CENTIMETRE", 1 / 2.54);
+        }
+
+        /// <summary>
         /// Convert Units into lowest unit.
         /// </summary>
         /// <param name="quantity">Quantity is going to be converted.</param>
         /// <returns>Converted value.</returns>
         public double ConvertUnit(Quantity quantity)
         {
-            return Math.Round(quantity.Value * this.ConversionFactor(quantity.Unit));
+            return Math.Round(quantity.Value * this.unit[quantity.Unit]);
         }
 
         /// <summary>
@@ -29,31 +46,18 @@ namespace QuantityMeasurementSln.Conversion
         /// <returns>Addition of two  quantity.</returns>
         public Quantity AddUnit(Quantity quanityOne, Quantity quantityTwo)
         {
-            quanityOne.Value = Math.Round(this.ConvertUnit(quanityOne) + this.ConvertUnit(quantityTwo));
+            quanityOne.Value = this.ConvertUnit(quanityOne) + this.ConvertUnit(quantityTwo);
             quanityOne.Unit = "INCH";
             return quanityOne;
         }
 
         /// <summary>
-        /// Converversion Factor.
+        /// Get Unit.
         /// </summary>
-        /// <param name="unit">Unit of variable to be converted.</param>
-        /// <returns>Conversion value to convert the unit.</returns>
-        private double ConversionFactor(string unit)
+        /// <returns>Dictionary.</returns>
+        public dynamic GetUnit()
         {
-            switch (unit)
-            {
-                case "YARD":
-                    return 36.0;
-                case "FEET":
-                    return 12.0;
-                case "INCH":
-                    return 1.0;
-                case "CENTIMETRE":
-                    return 1 / 2.54;
-                default:
-                    return 0.0;
-            }
+            return this.unit;
         }
     }
 }
